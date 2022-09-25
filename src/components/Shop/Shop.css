@@ -1,0 +1,12 @@
+.shopContainer {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.orderSummury {
+  background-color: rgb(255, 195, 83);
+  /* border: 2px solid black; */
+}
