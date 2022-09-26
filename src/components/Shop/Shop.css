@@ -2,11 +2,38 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
-.productContainer {
+.productsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  padding: 80px;
 }
-.orderSummury {
-  background-color: rgb(255, 195, 83);
-  /* border: 2px solid black; */
+.orderSummary {
+  position: fixed;
+  right: 0;
+  width: 20%;
+  height: 100vh;
+  padding: 25px;
+  background-color: #ff99004d;
+  font-size: 20px;
+  line-height: 30px;
+}
+.clearCartBtn {
+  width: 100%;
+  background-color: red;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.reviewOrderBtn {
+  width: 100%;
+  background-color: orange;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
 }
