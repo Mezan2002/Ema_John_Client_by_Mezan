@@ -1,6 +1,7 @@
 .shopContainer {
   display: grid;
   grid-template-columns: 4fr 1fr;
+  position: relative;
 }
 .productsContainer {
   display: grid;
@@ -9,7 +10,9 @@
   padding: 80px;
 }
 .orderSummary {
-  position: fixed;
+  border-radius: 8px;
+  position: absolute;
+  top: 80px;
   right: 0;
   width: 20%;
   height: 100vh;

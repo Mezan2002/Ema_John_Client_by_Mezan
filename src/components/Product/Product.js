@@ -12,7 +12,7 @@ const Product = (props) => {
         <p
           style={{
             fontSize: "21px",
-            lineHeight: "20px",
+            lineHeight: "25px",
             fontFamily: "Lato",
             marginTop: "7px",
           }}
