@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
@@ -9,9 +11,35 @@ const Shop = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  useEffect(() => {
+    const storedCart = getStoredCart();
+    const savedCart = [];
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
+      setCart(savedCart);
+    }
+  }, [products]);
   const [cart, setCart] = useState([]);
-  const addToCart = (product) => setCart([...cart, product]);
-  console.log(cart);
+  const addToCart = (selectedProduct) => {
+    let newCart = [];
+    const exist = cart.find((product) => product.id === selectedProduct.id);
+    if (!exist) {
+      selectedProduct.quantity = 1;
+      newCart = [...cart, selectedProduct];
+    } else {
+      const rest = cart.filter((product) => product.id !== selectedProduct.id);
+      exist.quantity = exist.quantity + 1;
+      newCart = [...rest, exist];
+    }
+
+    setCart(newCart);
+    addToDb(selectedProduct.id);
+  };
 
   return (
     <div className="shopContainer">
@@ -25,32 +53,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="orderSummary">
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "35px",
-            fontFamily: "Lato",
-            marginBottom: "65px",
-          }}
-        >
-          Order Summary
-        </p>
-        <p>Selected Items: {cart.length}</p>
-        <p>Total Price: ${}</p>
-        <p>Total Shipping Charge: $0</p>
-        <p>Tax: $0</p>
-        <p
-          style={{
-            fontSize: "25px",
-            fontWeight: "bold",
-            marginBottom: "100px",
-          }}
-        >
-          Grand Total: $0
-        </p>
-        <button className="clearCartBtn">Clear Cart</button>
-        <br />
-        <button className="reviewOrderBtn">Review Order</button>
+        <Cart cart={cart}></Cart>
       </div>
     </div>
   );
