@@ -3,3 +3,7 @@
   top: 0;
   padding: 30px 20px;
 }
+button {
+  display: flex;
+  justify-content: space-between;
+}
