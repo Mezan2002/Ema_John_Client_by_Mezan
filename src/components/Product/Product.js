@@ -11,19 +11,30 @@ const Product = (props) => {
       <div className="productInfo">
         <p
           style={{
+            fontFamily: "Roboto",
             fontSize: "21px",
             lineHeight: "25px",
-            fontFamily: "Lato",
             marginTop: "7px",
+            fontWeight: "bold",
           }}
         >
           {name}
         </p>
-        <p style={{ fontSize: "19px", lineHeight: "10px" }}>Price: ${price}</p>
-        <p style={{ lineHeight: "10px" }}>
+        <p
+          style={{
+            fontSize: "20px",
+            lineHeight: "10px",
+            fontWeight: "bold",
+            fontFamily: "Roboto",
+            color: "#ff9900",
+          }}
+        >
+          Price: ${price}
+        </p>
+        <p style={{ lineHeight: "10px", fontFamily: "Roboto" }}>
           <small>Manufacturer: {seller}</small>
         </p>
-        <p style={{ lineHeight: "10px" }}>
+        <p style={{ lineHeight: "10px", fontFamily: "Roboto" }}>
           <small>Ratings: {ratings} stars</small>
         </p>
       </div>

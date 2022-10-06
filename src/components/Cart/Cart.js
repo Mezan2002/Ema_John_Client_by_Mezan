@@ -20,7 +20,7 @@ const Cart = ({ cart }) => {
         style={{
           paddingTop: "90px",
           fontSize: "35px",
-          fontFamily: "Lato",
+          fontFamily: "Roboto",
           marginBottom: "65px",
         }}
       >
@@ -33,6 +33,7 @@ const Cart = ({ cart }) => {
       <h4
         style={{
           fontSize: "25px",
+          fontFamily: "Roboto",
           fontWeight: "bold",
           marginBottom: "100px",
         }}
