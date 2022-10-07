@@ -1,0 +1,21 @@
+.reviewProdutsContainer {
+  display: flex;
+  border: 1px solid #95a0a7;
+  width: 70%;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+.reviewProdutsContainer img {
+  width: 100px;
+  border-radius: 8px;
+  margin: 15px;
+}
+.reviewProductContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviewProductDetail {
+  font-family: "Roboto";
+}
