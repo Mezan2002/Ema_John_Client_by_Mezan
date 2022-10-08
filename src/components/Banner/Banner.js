@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 const Banner = () => {
   return (
@@ -9,7 +10,9 @@ const Banner = () => {
         </p>
         <h2>New Collection For Fall</h2>
         <p>Discover all the new arrivals of ready-to-wear collection.</p>
-        <button>Shop Now</button>
+        <button className="shopNowBtn">
+          <Link to="/shop">Shop Now</Link>
+        </button>
       </div>
       <div className="bannerImage">
         <img

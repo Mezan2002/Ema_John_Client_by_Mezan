@@ -20,6 +20,10 @@ const Shop = () => {
     }
   }, [products]);
   const [cart, setCart] = useState([]);
+  const clearCart = () => {
+    setCart([]);
+    localStorage.clear();
+  };
   const addToCart = (selectedProduct) => {
     let newCart = [];
     const exist = cart.find((product) => product.id === selectedProduct.id);
@@ -48,7 +52,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="orderSummary">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart} clearCart={clearCart}></Cart>
       </div>
     </div>
   );

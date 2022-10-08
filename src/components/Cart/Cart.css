@@ -7,3 +7,11 @@ button {
   display: flex;
   justify-content: space-between;
 }
+.clearCartBtn,
+.reviewOrderBtn {
+  cursor: pointer;
+}
+.reviewOrderBtn a {
+  text-decoration: none;
+  color: white;
+}

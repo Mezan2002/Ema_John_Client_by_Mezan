@@ -12,10 +12,31 @@
 }
 .reviewProductContainer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  width: 85%;
 }
 
 .reviewProductDetail {
   font-family: "Roboto";
+}
+.reviewProductDetail p {
+  margin: 0;
+}
+.deleteBtn {
+  display: block;
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(235, 87, 87, 0.3);
+  transition: all 0.2s;
+}
+.deleteBtn:hover {
+  background: rgba(235, 87, 87, 0.5);
+  cursor: pointer;
+}
+.trashIcon {
+  font-size: 31px;
+  color: #eb5757;
 }

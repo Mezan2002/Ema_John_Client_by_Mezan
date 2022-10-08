@@ -43,3 +43,8 @@ h2 {
   margin-top: 80px;
   font-family: "Roboto";
 }
+.shopNowBtn a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
