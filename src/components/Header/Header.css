@@ -9,9 +9,20 @@
 .header a {
   text-decoration: none;
   color: white;
-  margin-left: 36px;
+  margin-right: 36px;
   transition: all 0.4s;
 }
 .header a:hover {
   color: orange;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+.navLinks button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  background-color: #ff9900;
+  color: white;
 }
