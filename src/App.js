@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import About from "./components/About/About";
 import Banner from "./components/Banner/Banner";
+import Inventory from "./components/Inventory/Inventory";
+import Login from "./components/Login/Login";
 import Orders from "./components/Orders/Orders";
 import Shop from "./components/Shop/Shop";
+import SignUp from "./components/SignUp/SignUp";
 import Main from "./Layout/Main/Main";
 import { productsAndCartLoad } from "./loader/productAndCartLoad";
 
@@ -23,8 +27,16 @@ function App() {
           loader: productsAndCartLoad,
           element: <Orders></Orders>,
         },
-        { path: "/inventory", element: <h2>This is from Inventory</h2> },
-        { path: "/about", element: <h2>This is from about page</h2> },
+        { path: "/inventory", element: <Inventory></Inventory> },
+        { path: "/about", element: <About></About> },
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "/signup",
+          element: <SignUp></SignUp>,
+        },
       ],
     },
   ]);
