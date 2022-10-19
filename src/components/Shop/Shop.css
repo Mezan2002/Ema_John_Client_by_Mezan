@@ -34,3 +34,6 @@
   border-radius: 10px;
   font-size: 20px;
 }
+.reviewOrderBtn a {
+  list-style: none;
+}
