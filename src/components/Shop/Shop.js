@@ -57,7 +57,7 @@ const Shop = () => {
         <Cart cart={cart} clearCart={clearCart}>
           <Link to="/shipping">
             <button className="reviewOrderBtn">
-              <Link to="/shipping">Proceed Shipping</Link>
+              <Link to="/orders">Proceed Shipping</Link>
               <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>
             </button>
           </Link>
