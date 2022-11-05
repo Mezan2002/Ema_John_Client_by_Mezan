@@ -37,3 +37,24 @@
 .reviewOrderBtn a {
   list-style: none;
 }
+.pagination {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 62%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.pagination button {
+  padding: 20px;
+  margin-right: 10px;
+}
+.selected {
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.perPageData select {
+  padding: 20px;
+}

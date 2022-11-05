@@ -7,12 +7,15 @@ import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 const Shop = () => {
-  const products = useLoaderData();
+  const { products, count } = useLoaderData();
+  const [page, setPage] = useState(0);
+  const [dataPerPage, setDataPerPage] = useState(10);
+  const totalPages = Math.ceil(count / dataPerPage);
   useEffect(() => {
     const storedCart = getStoredCart();
     const savedCart = [];
     for (const id in storedCart) {
-      const addedProduct = products.find((product) => product.id === id);
+      const addedProduct = products.find((product) => product._id === id);
       if (addedProduct) {
         const quantity = storedCart[id];
         addedProduct.quantity = quantity;
@@ -28,18 +31,20 @@ const Shop = () => {
   };
   const addToCart = (selectedProduct) => {
     let newCart = [];
-    const exist = cart.find((product) => product.id === selectedProduct.id);
+    const exist = cart.find((product) => product._id === selectedProduct._id);
     if (!exist) {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter((product) => product.id !== selectedProduct.id);
+      const rest = cart.filter(
+        (product) => product._id !== selectedProduct._id
+      );
       exist.quantity = exist.quantity + 1;
       newCart = [...rest, exist];
     }
 
     setCart(newCart);
-    addToDb(selectedProduct.id);
+    addToDb(selectedProduct._id);
   };
 
   return (
@@ -47,7 +52,7 @@ const Shop = () => {
       <div className="productsContainer">
         {products.map((product) => (
           <Product
-            key={product.id}
+            key={product._id}
             product={product}
             addToCart={addToCart}
           ></Product>
@@ -57,11 +62,30 @@ const Shop = () => {
         <Cart cart={cart} clearCart={clearCart}>
           <Link to="/shipping">
             <button className="reviewOrderBtn">
-              <Link to="/orders">Proceed Shipping</Link>
+              <Link to="/orders">Orders</Link>
               <FontAwesomeIcon icon={faWallet}></FontAwesomeIcon>
             </button>
           </Link>
         </Cart>
+      </div>
+      <div className="pagination">
+        {[...Array(totalPages).keys()].map((num) => (
+          <button
+            className={page === num && "selected"}
+            onClick={() => setPage(num)}
+            key={num}
+          >
+            {num}
+          </button>
+        ))}
+        <div className="perPageData">
+          <select>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
       </div>
     </div>
   );
